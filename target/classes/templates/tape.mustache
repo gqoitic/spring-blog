@@ -7,6 +7,22 @@
     </head>
 
     <body>
-        <div><h1>{{info}}</h1></div>
+        <div><h2>Tape page</h2></div>
+
+        <h4><a href="addPost">Add new post</a></h4>
+
+        <!-- filter -->
+        <form method="post" action="filter">
+            <input type="text" name="filter" placeholder="Enter tag">
+            <button type="submit">Find</button>
+        </form>
+
+        {{#posts}}
+            <div>
+                <b>{{id}}</b>
+                <span>{{text}}</span>
+                <i>{{tag}}</i>
+            </div>
+        {{/posts}}
     </body>
 </html>
