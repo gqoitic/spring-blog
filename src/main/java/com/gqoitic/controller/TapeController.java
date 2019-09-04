@@ -1,8 +1,10 @@
 package com.gqoitic.controller;
 
 import com.gqoitic.domain.Post;
+import com.gqoitic.domain.User;
 import com.gqoitic.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,11 +41,12 @@ public class TapeController {
     }
 
     @PostMapping("addPost")
-    public String add(@RequestParam String text,
+    public String add(@AuthenticationPrincipal User user,
+                      @RequestParam String text,
                       @RequestParam String tag,
                       Map<String, Object> model)
     {
-        Post post = new Post(text, tag);
+        Post post = new Post(text, tag, user);
         postRepository.save(post);
 
         Iterable<Post> posts = postRepository.findAll();
