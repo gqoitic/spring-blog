@@ -19,9 +19,7 @@ public class TapeController {
     private PostRepository postRepository;
 
     @GetMapping("/")
-    public String start(Map<String, Object> model){
-        model.put("info", "Start page");
-
+    public String start(){
         return "index";
     }
 
@@ -35,8 +33,7 @@ public class TapeController {
     }
 
     @GetMapping("addPost")
-    public String addPost(Map<String, Object> model){
-        model.put("info", "this is add post page");
+    public String addPost(){
         return "addPost";
     }
 
