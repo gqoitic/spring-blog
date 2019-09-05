@@ -11,9 +11,8 @@
     <h4><a href="addPost">Add new post</a></h4>
 
     <!-- filter -->
-    <form method="post" action="filter">
-        <input type="text" name="filter" placeholder="Enter tag">
-        <input type="hidden" name="_csrf" value="${_csrf.token}"/>
+    <form method="get" action="/tape">
+        <input type="text" name="filter" placeholder="Enter tag" value="${filter}">
         <button type="submit">Find</button>
     </form>
 

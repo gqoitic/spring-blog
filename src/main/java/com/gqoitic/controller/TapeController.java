@@ -6,6 +6,7 @@ import com.gqoitic.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,10 +25,20 @@ public class TapeController {
     }
 
     @GetMapping("/tape")
-    public String main(Map<String, Object> model)
+    public String main(
+            @RequestParam(required = false, defaultValue = "") String filter,
+            Model model)
     {
         Iterable<Post> posts = postRepository.findAll();
-        model.put("posts", posts);
+
+        if(!Objects.isNull(filter) && !filter.isEmpty()){
+            posts = postRepository.findByTag(filter);
+        } else {
+            posts = postRepository.findAll();
+        }
+
+        model.addAttribute("posts", posts);
+        model.addAttribute("filter", filter);
 
         return "tape";
     }
@@ -51,22 +62,4 @@ public class TapeController {
 
         return "redirect:tape";
     }
-
-    @PostMapping("filter")
-    public String filter(@RequestParam String filter,
-                         Map<String, Object> model)
-    {
-        Iterable<Post> posts;
-
-        if(!Objects.isNull(filter) && !filter.isEmpty()){
-            posts = postRepository.findByTag(filter);
-        } else {
-            posts = postRepository.findAll();
-        }
-
-        model.put("posts", posts);
-
-        return "tape";
-    }
-
 }
