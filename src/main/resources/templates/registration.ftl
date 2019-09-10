@@ -3,5 +3,6 @@
 
 <@c.page>
     <h4>Registration</h4>
+    ${message?ifExists}
     <@l.login "/registration" />
 </@c.page>

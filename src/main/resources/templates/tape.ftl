@@ -13,7 +13,7 @@
 
     <!-- filter -->
     <form method="get" action="/tape">
-        <input type="text" name="filter" placeholder="Enter tag" value="${filter}">
+        <input type="text" name="filter" placeholder="Enter tag" value="${filter?ifExists}">
         <button type="submit">Find</button>
     </form>
 
@@ -23,6 +23,11 @@
         <span>${post.text}</span>
         <i>${post.tag}</i>
         <strong>${post.authorName}</strong>
+        <div>
+            <#if post.filename??>
+                <img src="/img/${post.filename}">
+            </#if>
+        </div>
     </div>
 
     <#else>
