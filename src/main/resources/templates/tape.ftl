@@ -4,12 +4,7 @@
 <@c.page>
     <div>
         <@l.logout />
-        <span><a href="/user">User list</a></span>
     </div>
-
-    <div><h2>Tape page</h2></div>
-
-    <h4><a href="addPost">Add new post</a></h4>
 
     <!-- filter -->
     <form method="get" action="/tape">

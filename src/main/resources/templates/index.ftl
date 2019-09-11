@@ -2,5 +2,5 @@
 
 <@c.page>
     <div><h1>Start page</h1></div>
-    <h3><a href="tape">tape page</a></h3>
+    <div><h4>This is a simple Spring Boot application</h4></div>
 </@c.page>
