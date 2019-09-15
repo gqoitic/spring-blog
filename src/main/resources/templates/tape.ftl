@@ -13,7 +13,7 @@
 
     <div class="card-columns">
         <#list posts as post>
-        <div class="card border-dark mb-3">
+        <div class="card border-dark mb-3 bg-card">
             <#if post.filename??>
                 <img src="/img/${post.filename}" class="card-img-top">
             </#if>

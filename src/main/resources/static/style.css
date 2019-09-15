@@ -1,3 +1,11 @@
-body {
-    color: #255;
+.bg
+{
+    background-color: #EEC4FF;
+    background: #EEC4FF -webkit-gradient(linear, left top, left bottom, from(#86D9C1), to(#EEC4FF)) no-repeat;
+}
+
+.bg-card
+{
+    background-color: #EEC4FF;
+    background: #EEC4FF -webkit-gradient(linear, left top, left bottom, from(#86D9C1), to(#FFFFFF)) no-repeat;
 }
