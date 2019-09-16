@@ -22,11 +22,18 @@
                 </li>
             </#if>
 
-            <#if name!="unknown">
+            <#if user??>
+                <li class="nav-item">
+                    <a class="nav-link" href="/user/profile">Profile</a>
+                </li>
+            </#if>
+
+            <#if user??>
                 <li class="nav-item">
                     <a class="nav-link" href="/addPost">Add post</a>
                 </li>
             </#if>
+
         </ul>
 
         <div class="navbar-text mr-3">${name}</div>
