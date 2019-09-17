@@ -21,6 +21,7 @@ public class User implements UserDetails {
     private String password;
 
     @Transient
+    @NotBlank(message = "Please confirm password")
     private String password2;
 
     private boolean active;
