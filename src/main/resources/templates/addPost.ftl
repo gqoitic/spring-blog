@@ -8,11 +8,24 @@
     <div class="form-group">
         <form method="post" enctype="multipart/form-data">
             <div class="form-group mt-3">
-                <input type="text" name="text" placeholder="Enter message" class="form-control"/>
+                <input type="text" name="text" placeholder="Enter message"
+                       value="<#if message??>${message.text}</#if>" class="form-control ${(textError??)?string('is-invalid', '')}"/>
+
+                <#if textError??>
+                    <div class="invalid-feedback">
+                        ${textError}
+                    </div>
+                </#if>
             </div>
 
             <div class="form-group mt-3">
-            <input  type="text" name="tag" placeholder="Tag" class="form-control"/>
+            <input  type="text" name="tag" placeholder="Tag" class="form-control ${(tagError??)?string('is-invalid', '')}"
+                    value="<#if message??>${message.tag}</#if>"/>
+                <#if tagError??>
+                    <div class="invalid-feedback">
+                        ${tagError}
+                    </div>
+                </#if>
             </div>
 
             <div class="form-group mt-3">
